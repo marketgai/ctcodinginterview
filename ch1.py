@@ -140,10 +140,10 @@ def compress(str1):
       letter = char
   result += f'{letter}{count}'
   return result
-print(compress('abbcccaa'))
+# print(compress('abbcccaa'))
 
 
-#7 rotate matrix
+#7 rotate matrix -- not complete
 def rotate(matrix):
   newMatrix = []
   r = len(matrix) - 1
@@ -154,8 +154,51 @@ def rotate(matrix):
         if x == n:
           old
           x = r
-          matrix[y][x] = 
+          matrix[y][x]
+# try 2
+def rotateM(matrix):
+  n = len(matrix) - 1
+  y = 0
+  for x in range(n+1):
+    val = matrix[y][n-x]
+    matrix[n-x][y] = matrix[y][x]
+    #next
+    
+    matrix[n][n-x]
 
+#8 zero matrix
+def zMatrix(matrix):
+  rows = set()
+  cols = set()
+  for y in range(len(matrix)):
+    for x in range(len(matrix[y])):
+      if matrix[x][y] == 0:
+        rows.add(y)
+        cols.add(x)
+  for y in range(len(matrix)):
+    for x in range(len(matrix[y])):
+      if y in rows or x in cols:
+        matrix[x][y] = 0
+  return matrix
+
+# print(zMatrix([
+# [0, 1, 2 ,6 ,3],
+# [4, 1, 2 ,4 ,3],
+# [5, 5, 2 ,0 ,3],
+# [6, 1, 2 ,7 ,3],
+# [7, 1, 2 ,7 ,3]]))
+
+#9 string rotation
+
+def isSubstring(s1, s2):
+  for n in range(len(s1)):
+    letter = s1[-1]
+    s1 = letter + s1[:-1]
+    if s1 == s2:
+      return True
+  return False
+
+# print(isSubstring('abcd', 'cdab'))
 
 
 
